@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shipment Management Form - JsonPowerDB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body { font-family: Arial; padding:20px; }
+    .container { max-width:700px; margin:auto; }
+    label { display:block; margin-top:10px; font-weight:bold; }
+    input, textarea { width:100%; padding:8px; margin-top:5px; }
+    button { margin-top:15px; padding:10px 16px; }
+    .disabled-input { background:#eee; }
+    #status { margin-top:15px; font-size:14px; }
+  </style>
+</head>
+<body onload="resetForm()">
+  <div class="container">
+    <h2>Shipment Management Form</h2>
+    <p><small>DB: DELIVERY-DB | Table: SHIPMENT-TABLE</small></p>
+
+    <label>Shipment No. (Primary Key)</label>
+    <input id="shipmentNo" onblur="onShipmentEntered()" autofocus>
+
+    <label>Description</label>
+    <textarea id="description" disabled class="disabled-input"></textarea>
+
+    <label>Source</label>
+    <input id="source" disabled class="disabled-input">
+
+    <label>Destination</label>
+    <input id="destination" disabled class="disabled-input">
+
+    <label>Shipping Date</label>
+    <input type="date" id="shippingDate" disabled class="disabled-input">
+
+    <label>Expected Delivery Date</label>
+    <input type="date" id="expectedDate" disabled class="disabled-input">
+
+    <button id="saveBtn" onclick="saveShipment()" disabled>Save</button>
+    <button id="updateBtn" onclick="updateShipment()" disabled>Update</button>
+    <button id="resetBtn" onclick="resetForm()">Reset</button>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="jpdb-commons.js"></script>
+  <script src="form.js"></script>
+</body>
+</html>
